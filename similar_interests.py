@@ -1,3 +1,11 @@
+import pandas as pd
+import numpy as np
+from scipy.spatial import distance
+
+global_dataframe = pd.read_csv("train_interests.csv",header = 0)
+columns_title = list(global_dataframe.columns)
+basic_dist = dict(zip(columns_title, [0 for i in range(len(columns_title))]))
+
 
 def change_dataframe(dataframe):
     new_df = dataframe.copy()
@@ -40,12 +48,5 @@ def similar_interests(interests, dataframe=None):
         return []
 
 if __name__ == '__main__':
-    import pandas as pd
-    import numpy as np
-    from scipy.spatial import distance
-
-    global_dataframe = pd.read_csv("train_interests.csv",header = 0)
-    columns_title = list(global_dataframe.columns)
-    basic_dist = dict(zip(columns_title, [0 for i in range(len(columns_title))]))
     outp = similar_interests(['Books', 'Music', 'Children', 'Outdoors', 'Science_and_technology', 'Foreign languages', 'Cinematography', 'Communication', 'Eating', 'Cybersport', 'Volunteer', 'Pets', 'Sport', 'Dance', 'Concerts', 'Cars', 'Art'])
-
+    print(outp)
