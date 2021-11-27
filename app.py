@@ -12,3 +12,4 @@ def get_closest_interests():
     suggested_interests = similar_interests(user_interests)
     return jsonify({'suggestedInterests': suggested_interests})
 
+
